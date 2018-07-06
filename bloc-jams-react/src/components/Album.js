@@ -35,9 +35,10 @@ class Album extends Component{
              {this.state.album.songs.map( (song, index)=>
              <tr key = {index}>
              <th>{song.title}</th>
+             <th>{song.duration}</th>
              </tr>
              )}
-            
+           
            </tbody>
          </table>
       </section>
