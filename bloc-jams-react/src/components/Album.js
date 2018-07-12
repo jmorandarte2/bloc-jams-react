@@ -42,6 +42,31 @@ class Album extends Component{
       this.play();
     }
   }
+ 
+  handleEnter(song){
+    this.setState ({
+      hover: song
+    })
+  }
+
+  handleLeave(song){
+    this.setState({ 
+      hover: false 
+    });
+  }
+
+  ionicons(song, index){
+    const play = <span className="ion-play"></span>;
+    const pause = <span className="ion-pause"></span>;
+    const isSameSong = this.state.currentSong === song;
+    if (this.state.isPlaying === false && this.state.hover === song) {
+      return play;
+    } else if (this.state.isPlaying === true && isSameSong) {
+      return pause;
+    } else {
+      return (index + 1);
+  }
+}
 
   render(){
     return (
@@ -62,18 +87,17 @@ class Album extends Component{
            </colgroup>  
            <tbody>
              {this.state.album.songs.map( (song, index)=>
-             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-             <th>{index + 1}</th>
+             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={()=> this.handleEnter(song)} onMouseLeave={()=> this.handleLeave(song)}>
+            <th>{this.ionicons(song, index)}</th>
              <th>{song.title}</th>
              <th>{song.duration}</th>
              </tr>
              )}
-           
+         
            </tbody>
          </table>
       </section>
     );
   }
-};
-
+  }
 export default Album;
