@@ -45,5 +45,5 @@ class PlayerBar extends Component{
         )
     }
 }
-
+ //this is an update
 export default PlayerBar;

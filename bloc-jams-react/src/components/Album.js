@@ -150,11 +150,11 @@ handleNextClick(){
            <tbody>
              {this.state.album.songs.map( (song, index)=>
              <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={()=> this.handleEnter(song)} onMouseLeave={()=> this.handleLeave(song)}>
-            <th>{this.ionicons(song, index)}</th>
-             <th>{song.title}</th>
-             <th>{song.duration}</th>
-             <th>{this.formatTime(song.duration)}</th>
-             </tr>
+             <th>{this.ionicons(song, index)}</th>
+              <th>{song.title}</th>
+              <th>{song.duration}</th>
+              <th>{this.formatTime(song.duration)}</th>
+              </tr>
              )}
         
            </tbody>
