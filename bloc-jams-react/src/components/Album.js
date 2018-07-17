@@ -153,9 +153,10 @@ handleNextClick(){
             <th>{this.ionicons(song, index)}</th>
              <th>{song.title}</th>
              <th>{song.duration}</th>
+             <th>{this.formatTime(song.duration)}</th>
              </tr>
              )}
-         
+        
            </tbody>
            <PlayerBar isPlaying ={this.state.isPlaying} 
            currentSong ={this.state.currentSong}
