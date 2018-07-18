@@ -149,14 +149,17 @@ handleNextClick(){
            </colgroup>  
            <tbody>
              {this.state.album.songs.map( (song, index)=>
-             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={()=> this.handleEnter(song)} onMouseLeave={()=> this.handleLeave(song)}>
-             <th>{this.ionicons(song, index)}</th>
-              <th>{song.title}</th>
-              <th>{this.formatTime(song.duration)}</th>
-              </tr>
+             
+            <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={()=> this.handleEnter(song)} onMouseLeave={()=> this.handleLeave(song)}>
+             <th className="ion-icons">{this.ionicons(song, index)}</th>
+             <th>{song.title}</th>
+             <th>{this.formatTime(song.duration)}</th>
+            </tr>
+            
              )}
-        
+     
            </tbody>
+          
            <PlayerBar isPlaying ={this.state.isPlaying} 
            currentSong ={this.state.currentSong}
            currentTime={this.audioElement.currentTime}
@@ -167,6 +170,7 @@ handleNextClick(){
            handleTimeChange={(e) => this.handleTimeChange(e)}
            handleVolChange={(e) => this.handleVolChange(e)}
            formatTime={(sec) => this.formatTime(sec)}/>
+           
          </table>
       </section>
     );
